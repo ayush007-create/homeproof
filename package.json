@@ -1,0 +1,12 @@
+{
+  "name": "homeproof",
+  "private": true,
+  "description": "HomeProof: one deployable app (Express serves the API and the built React client).",
+  "scripts": {
+    "build": "npm ci --include=dev --prefix client && npm run build --prefix client && npm ci --omit=dev --prefix server",
+    "start": "npm start --prefix server"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

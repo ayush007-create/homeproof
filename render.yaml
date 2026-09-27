@@ -1,0 +1,25 @@
+# Render Blueprint: one web service that runs the API and serves the built app.
+# Render → New → Blueprint → pick this repo. Fill in the values marked sync: false.
+services:
+  - type: web
+    name: homeproof
+    runtime: node
+    plan: free
+    buildCommand: npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: MONGODB_URI
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: ELEVENLABS_API_KEY
+        sync: false
+      - key: ELEVENLABS_VOICE_ID
+        sync: false
+      - key: GEOCODER_CONTACT
+        sync: false
